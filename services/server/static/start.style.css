@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'URW Chancery L', cursive;
+    font-weight: 500;
+    box-sizing: border-box;
+}
+body{
+    background: #ecf6ff;
+}
+.app{
+    background: #4f94d4;
+    width: 90%;
+    max-width: 1000px;
+    height: 600px;
+    margin: 60px auto 0;
+    border-radius: 9px;
+    padding: 40px;
+}
+.app h1{
+    font-size: 39px;
+    color: aliceblue;
+    font-weight: 600;
+    border-bottom: 2px solid #9ec2e6;
+    text-align: center;
+    padding-bottom: 15px;
+}
+.quiz{
+    padding: 25px 0;
+}
+.quiz h2{
+    font-size: 20px;
+    color: azure;
+    font-weight: 600;
+    padding: 10px;
+}
+.quiz ul{
+    list-style: circle;
+    padding-left: 40px;
+    font-size: 20px;
+    color: azure;
+}
+#next{
+    background: #9ec2e6;
+    color: #0a4b78;
+    font-size: 20px;
+    font-weight: 500;
+    width: 200px;
+    border: 0;
+    padding: 10px;
+    margin: 20px auto 0;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    transition: all 0.5s;
+}
+#next:hover{
+    background: #043959;
+    color: azure;
+}
+
+#more{
+    background: #9ec2e6;
+    color: #0a4b78;
+    font-size: 20px;
+    font-weight: 500;
+    width: 200px;
+    border: 0;
+    padding: 10px;
+    margin: 20px auto 0;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    transition: all 0.5s;
+}
+#more:hover{
+    background: #043959;
+    color: azure;
+}

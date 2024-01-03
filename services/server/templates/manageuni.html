@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container"><p class="mt-5 mb-5"> </p></div>
+
+<div class="container">
+    <div class="level-item has-text-centered">
+
+      <form
+        method="POST"
+        action="{{ url_for('website.upload_sast') }}"
+        enctype="multipart/form-data"
+      >
+
+      <div class="block">
+        <h3 class="title">Добавить университет</h3>
+      </div>
+
+      <div class="block">
+        <div id="file-js-example" class="file has-name">
+          <label class="file-label">
+            <input class="file-input" type="file" name="file">
+            <span class="file-cta">
+              <span class="file-icon">
+                <i class="fas fa-upload"></i>
+              </span>
+              <span class="file-label">
+                Загрузить фото …
+              </span>
+            </span>
+            <span class="file-name">
+              Файл не загружен
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="field">
+          <label class="label">Название университета</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Московский Госудаственный Университет" name="name" style="width:50%">
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="field">
+          <label class="label">Регион</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Москва" name="name" style="width:50%">
+          </div>
+        </div>
+      </div>
+    
+      <div class="block">
+        <div class="field">
+          <label class="label">Название университета</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Московский Госудаственный Университет" name="name" style="width:50%">
+          </div>
+        </div>
+      </div>
+
+        <div class="block">
+          <div class="control">
+            <button type="submit" class="button is-link">Upload</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  
+    <script>
+      const fileInput = document.querySelector('#file-js-example input[type=file]');
+      fileInput.onchange = () => {
+        if (fileInput.files.length > 0) {
+          const fileName = document.querySelector('#file-js-example .file-name');
+          fileName.textContent = fileInput.files[0].name;
+        }
+      }
+    </script>
+</div>
+
+<div class="container">
+  <section class="section is-medium">
+    <div class="level-item has-text-centered">
+      <div class="block">
+        <div class="table-container" id="events_id">
+          <table class="table is-hoverable">
+            <thead>
+              <tr>
+                <th>{{ header1 }}</th>
+                <th>{{ header2 }}</th>      
+                <th>{{ header3 }}</th>
+                <th>{{ header4 }}</th>
+                <th>{{ header5 }}</th>
+                <th>{{ header6 }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for scan in scans.items %}
+                <tr>
+                  <th>{{ scan.date }}</th>
+                  <td>{{ scan.scan_type }}</td>
+                  <td>{{ scan.target }}</td>
+                  <td>{{ scan.engid }}</td>
+                  <td>{{ scan.status }}</td>
+                  <td>
+                    <a href="{{url_for('website.logs', scan_id=scan.scan_id)}}">{{ scan.scan_id }}</a>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+</div>
+
+{% endblock %}

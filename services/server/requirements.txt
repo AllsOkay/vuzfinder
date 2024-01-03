@@ -1,0 +1,13 @@
+Flask
+Flask-SQLAlchemy
+PyJWT==1.7.1
+Werkzeug
+python-whois
+waitress
+psycopg2-binary==2.8.6
+pydantic
+celery
+redis
+flower
+Flask-CeleryExt==0.3.4
+pytest

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Поиск Университета</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bulma.min.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  </head>
+  <body>
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="{{ url_for('website.quiz') }}">
+          <img src="{{ url_for('static', filename='pocketsiem-logo.png') }}" width="112" height="28">
+        </a>
+      </div>
+    </nav>
+
+    <div class="block">
+      Text is not visible
+    </div>
+
+    {% if get_flashed_messages() %}
+      <div class="container">
+        <div class="block">
+        {% for category, message in get_flashed_messages(with_categories=True) %}
+          <div id="message{{ loop.index }}">
+            {% if category %}
+              {% if category == 'error' %}
+                <div class="notification is-danger">
+              {% elif category == 'warning' %}
+                <div class="notification is-warning">
+              {% elif category == 'success' %}
+                <div class="notification is-success">
+              {% else %}
+                <div class="notification">
+              {% endif %}
+            {% else %}
+              <div class="notification">
+            {% endif %}
+              <button class="delete" data-target="message{{ loop.index }}" aria-label="delete"></button>
+              {{ message }}
+            </div>
+          </div>
+        {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+    <section class="section" id="events_view">
+        {% block content %}
+        {% endblock %}
+    </section>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+  </body>
+</html>
