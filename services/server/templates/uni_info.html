@@ -1,36 +1,35 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="level-item has-text-centered">
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='start.style.css') }}">
+</head>
 
   {% for uni in uni_details %}
-  <div class="container">      
-    <div class="block">
-      <figure class="image">
-        <img src="{{ url_for('static', filename=uni.picture_name) }}">
-      </figure>
-    </div>
+    <div class="app">
+      <div class="center">
+          <figure class="image">
+            <img src="{{ url_for('static', filename=uni.picture_name) }}">
+          </figure>
+      </div>
 
-    <div class="content is-medium">
-      <h1>{{ uni.full_name }}</h1>
-      <h1>{{ uni.region }}</h1>
-      <p>{{ uni.adress }}</p>
-      <h2>Описание</h2>
-      <p>{{ uni.description }}</p>
-      <h2>Направления</h2>
-      <p>{{ uni.areas }}</p>
-      <h2>Количество платных мест</h2>
-      <p>{{ uni.place_contract }}</p>
-      <h2>Количество бюджетных мест</h2>
-      <p>{{ uni.place_budget }}</p>
-      <h2>Проходной балл на бюджет</h2>
-      <p>{{ uni.eg_score_budget }}</p>
-      <h2>Проходной балл на контракт</h2>
-      <p>{{ uni.eg_score_contract }}</p>
-      <h2>Стоимость обучения, контракт</h2>
-      <p>{{ uni.cost }}</p>
-    </div>
+        <h1>{{ uni.full_name }}</h1>
+        <h2>Адрес</h2>
+        <p>{{ uni.adress }}</p>
+        <h2>Описание</h2>
+        <p>{{ uni.description }}</p>
+        <h2>Направления</h2>
+        <p>{{ uni.areas }}</p>
+        <h2>Количество платных мест</h2>
+        <p>{{ uni.place_contract }}</p>
+        <h2>Количество бюджетных мест</h2>
+        <p>{{ uni.place_budget }}</p>
+        <h2>Проходной балл на бюджет</h2>
+        <p>{{ uni.eg_score_budget }}</p>
+        <h2>Проходной балл на контракт</h2>
+        <p>{{ uni.eg_score_contract }}</p>
+        <h2>Стоимость обучения, контракт</h2>
+        <p>{{ uni.cost }}</p>
+    {% endfor %}
   </div>
-  {% endfor %}
-</div>
 {% endblock %}
