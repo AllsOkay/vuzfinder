@@ -1,52 +1,42 @@
 {% extends "base.html" %}
 {% block content %}
 
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='start.style.css') }}">
+</head>
 <div class="container"><p class="mt-5 mb-5"> </p></div>
 
-<div class="container">
-  <nav class="level">
-    <div class="level-item has-text-centered">
-
-      <div class="container">
-        <div class="block">
-          <h3 class="title">Вам подходит:</h3>
-        </div>
-        <div class="container">
-          <section class="section">
-            <div class="level-item has-text-centered">
-              <div class="block">
-                <div class="table-container" id="events_id">
-                  <table class="table is-hoverable">
-                    <thead>
-                      <tr>
-                        <th>Название</th>
-                        <th>Регион</th>
-                        <th>Проходной балл</th>
-                        <th>Направления</th>
-                        <th>Стоимость обучения</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {% for uni in result_uni %}
+  <div class="app">
+            <h3 class="title">Вам подходит:</h3>
+            <section class="section">
+                    <table class="table is-hoverable">
+                      <thead>
                         <tr>
-                          <form action="{{ url_for('website.uni_info', id=uni.id) }}">
-                            <th><button id="next" type="submit">{{ uni.name }}</button></th>
-                          </form>
-                          <td>{{ uni.region }}</td>
-                          <td>{{ uni.eg_score_contract }}</td>
-                          <td>{{ uni.areas }}</td>
-                          <td>{{ uni.cost }}</td>
+                          <th>Название</th>
+                          <th>Регион</th>
+                          <th>Проходной балл</th>
+                          <th>Направления</th>
+                          <th>Стоимость обучения</th>
                         </tr>
-                      {% endfor %}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
+                      </thead>
+                      <tbody>
+                        {% for uni in result_uni %}
+                          <tr>
+                            <form action="{{ url_for('website.uni_info', id=uni.id) }}">
+                              <th><button id="next" type="submit">{{ uni.name }}</button></th>
+                            </form>
+                            <td>{{ uni.region }}</td>
+                            <td>{{ uni.eg_score_contract }}</td>
+                            <td>{{ uni.areas }}</td>
+                            <td>{{ uni.cost }}</td>
+                          </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+            </section>
+  </div>
+{% endblock %}
 
-    </div>
   </nav>
 </div>
 
