@@ -21,9 +21,7 @@ def create_app(config_filename=None):
 
 def register_blueprints(app):
     from website.views import website
-    from auth import auth
 
-    app.register_blueprint(auth)
     app.register_blueprint(website)
 
 flask_app = create_app('flask.cfg')
