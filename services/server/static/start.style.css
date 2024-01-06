@@ -78,24 +78,6 @@ body{
     color: #ffffff;
 }
 
-#more{
-    background: #9ec2e6;
-    color: #0a4b78;
-    font-size: 20px;
-    font-weight: 500;
-    width: 200px;
-    border: 0;
-    padding: 10px;
-    margin: 20px auto 0;
-    border-radius: 5px;
-    cursor: pointer;
-    display: block;
-    transition: all 0.5s;
-}
-#more:hover{
-    background: #043959;
-    color: azure;
-}
 .table {
 	width: 100%;
     max-height: 58px;
